@@ -2,6 +2,13 @@
 DSA Boot Camp 
 
 ## Below are the Patterns coded as of now.
+
+#### Steps for Simplifying logic
+
+1. Find the number of rows to be printed.
+2. Find which all columns are eligible that need to be printed.
+3. Need derive the logic that what to need to be printed.
+
 ```text
 Pattern 1:: 
 

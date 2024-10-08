@@ -3,6 +3,7 @@ package com.patterns;
 public class Application {
 
 	public static void main(String[] args) {
+		
 		pattern8(5);
 	}
 
