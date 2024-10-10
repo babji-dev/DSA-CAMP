@@ -2,9 +2,9 @@ package com.recursion;
 
 public class Factorial {
 	public static void main(String[] args) {
-		System.out.println(factorial(5));
-		System.out.println(factorialWithTailRecu(5,1));
-		System.out.println(factorWithRecu(5));
+		System.out.println("Iterative Approach :"+factorial(5));
+		System.out.println("Tail Recursion :"+factorialWithTailRecu(5,1));
+		System.out.println("Recursion :"+factorWithRecu(5));
 	}
 	
 	/* Iterative Approach */
