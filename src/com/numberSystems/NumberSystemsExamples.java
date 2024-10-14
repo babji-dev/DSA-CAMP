@@ -6,6 +6,7 @@ public class NumberSystemsExamples {
 		int [] arr = {1,2,3,4,4,3,2,1,6,6,7,8,8};
 		System.out.println(magicNumber(6));
 		System.out.println(numberOfDigitsInNUmber(354321111));
+		System.out.println(reverseArray(arr).toString());
 		
 	}
 	
@@ -72,6 +73,16 @@ public class NumberSystemsExamples {
 		 return (int) (Math.log(number)/Math.log(base) + 1);
 	}
 	
+	static int[] reverseArray(int[] arr) {
+		
+		for(int i=0;i<arr.length/2;i++) {
+			int temp = arr[i];
+			arr[i] = arr[arr.length-i-1];
+			arr[arr.length-i-1] = temp;
+		}
+		
+		return arr;
+	}
 	
 	
 }
