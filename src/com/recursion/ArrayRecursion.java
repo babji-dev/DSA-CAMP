@@ -15,9 +15,11 @@ public class ArrayRecursion {
 		System.out.println(findAllIndexesOfElement(arr,0,7,new ArrayList<>()));
 		System.out.println(findAllIndexesOfElementWithoutListAsArgument(arr, 0,64) );
 		Arrays.stream(arr).boxed().sorted(Collections.reverseOrder()).mapToInt(i->i.intValue()).toArray();
-	
+
 	}
-	
+
+	// Code to find given array is sorted or not in recursive way.
+	//arr = {-1,1,2,3,4,5,6,7,7,8,64}; 
 	static boolean isArraySorted(int[] arr, int lower,int upper) {
 		if(arr.length-1!=upper && arr[lower]<=arr[upper]) {
 			return isArraySorted(arr,upper,upper+1);
@@ -28,40 +30,41 @@ public class ArrayRecursion {
 			return false;
 		}
 	}
-	
+	//returns true
+
 	//Linear Search using recursion
 	static int searchForElement(int[] arr,int index,int target) {
 		if(index>arr.length-1)
 			return -1;
-		
+
 		if(arr[index]==target)
 			return index;
 		else 
 			return searchForElement(arr, index+1, target);
-		
+
 	}
-	
+
 	static List<Integer> findAllIndexesOfElement(int arr[], int index,int target,List<Integer> store){
 		if(index>arr.length-1) {
 			return store;
 		}
-		
+
 		if(arr[index]==target)
 			store.add(index);
-		
+
 		return findAllIndexesOfElement(arr, index+1, target, store);
 	}
-	
+
 	static List<Integer> findAllIndexesOfElementWithoutListAsArgument(int arr[], int index, int target) {
 		List<Integer> list = new ArrayList<>();
-		
+
 		if(index>arr.length-1){
 			return list;
 		}
-		
+
 		if(arr[index]==target)
 			list.add(index);
-		
+
 		List<Integer> listFromBelowCalls = findAllIndexesOfElementWithoutListAsArgument(arr, index+1, target);
 		list.addAll(listFromBelowCalls);
 		return list;
