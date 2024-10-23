@@ -5,24 +5,72 @@ import java.util.Arrays;
 public class CyclicSort {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// INDEX: 4, 3, 2, 1, 0
-		// ELEM : 5, 4, 3, 2, 1
+		
+		int[] arr = {5,8,9,6,6};
+		System.out.println(Arrays.toString(cyclicSortRecall(arr)));
 
-		/*
-		  nums[0] = 5
-		  so we need to swap nums[0] with nums[5-1]
-		  
-		 */
+	}
+	
+	
+	
 
-		int[] nums = {5,3,4,1,2};
-		System.out.println(Arrays.toString(nums));
-		System.out.println(Arrays.toString(cyclicSort(nums)));
+	
+	
+	private static int[] cyclicSortRecall(int[] arr) {
+		
+		int i = 0;
+		while(i<arr.length) {
+			int correctIndex = arr[i]-5;
+			if(arr[correctIndex] != arr[i]) {
+				int temp = arr[i];
+				arr[i] = arr[correctIndex];
+				arr[correctIndex] = temp;
+			}else {
+				i++;
+			}
+		}
+		
+		return arr;
+	}
 
+
+
+
+
+
+
+
+
+
+
+
+	static int[] missingNumberInRange(int[] nums) {
+		
+		int i=0;
+		
+		while(i<nums.length) {
+			if(nums[i]<nums.length && nums[i]!=i) {
+				int temp = nums[i];
+				nums[i] = nums[temp];
+				nums[temp] = temp;
+			}else {
+				i++;
+			}
+		}
+		
+		for(int c=0;c<nums.length;c++) {
+			if(nums[c]!=c) {
+				System.out.println(c);
+			}
+		}
+		
+		
+		return nums;
 	}
 
 	static int[] cyclicSort(int[] nums) {
 
+		/*
 		for(int i=0;i<nums.length-1;i++) {
 			while(i != nums[i]-1) {
 				int temp = nums[i];
@@ -31,8 +79,22 @@ public class CyclicSort {
 				//System.out.println(Arrays.toString(nums));
 			}
 		}
+		 */
+		
+		int i = 0;
+		while(i<nums.length) {
+			if(nums[i]-1!=i) {
+				int temp = nums[i];
+				nums[i] = nums[temp-1];
+				nums[temp-1] = temp;
+			}else {
+				i++;
+			}
+		}
+		
 
 		return nums;
 	}
+	
 
 }
